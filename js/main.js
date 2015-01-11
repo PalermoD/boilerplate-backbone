@@ -1,3 +1,5 @@
+// model demo
+
 var Vehicle = Backbone.Model.extend({
 	urlRoot: "api/vehicles",
 	registrationNumber: "vehicleId",
@@ -27,3 +29,20 @@ var car = new Car({
 });
 
 car.start();
+
+
+// collection demo
+
+
+var Song = Backbone.Model.extend();
+
+var Songs = Backbone.Collection.extend({
+	model: Song
+});
+
+var songs = new Songs([
+	new Song({ title: "I love you baby"}),
+	new Song({ title: "blue moon"}),
+	new Song({title: "Baby got back"})
+
+	]);
