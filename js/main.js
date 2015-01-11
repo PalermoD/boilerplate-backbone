@@ -1,17 +1,29 @@
-var Animal = Backbone.Model.extend({
-	walk: function(){
-		console.log("animal walking . . .")
+var Vehicle = Backbone.Model.extend({
+	urlRoot: "api/vehicles",
+	registrationNumber: "vehicleId",
+	start: function(){
+		console.log("Vehicle started")
 	}
 });
 
 
 
-var Dog= Animal.extend({
-	walk: function(){
-		console.log("dog is walking")
+var Car = Vehicle.extend({
+	
+	start: function(){
+		console.log("Car started")
+	},
+	validate: function(attrs){
+		if (!attrs.registrationNumber)
+			return "Id it required";
 	}
 });
 
-var dog = new Dog();
+var car = new Car({
+	registrationNumber: "XLI887",
+	color: "blue",
+	
 
-dog.walk();
+});
+
+car.start();
