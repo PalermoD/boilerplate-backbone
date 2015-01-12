@@ -28,7 +28,16 @@ var car = new Car({
 
 });
 
-car.start();
+
+var Vehicles = Backbone.Collection.extend({
+	model: Car
+});
+
+var vehicles = new Vehicles();
+
+vehicles.add(new Vehicle({ registrationNumber: "XLI887", color: "Blue"}));
+vehicles.add(new Vehicle({ registrationNumber: "ZNP123", color: "Blue"}));
+vehicles.add(new Vehicle({ registrationNumber: "XUV456", color: "Blue"}));
 
 
 // collection demo
@@ -41,8 +50,11 @@ var Songs = Backbone.Collection.extend({
 });
 
 var songs = new Songs([
-	new Song({ title: "I love you baby"}),
-	new Song({ title: "blue moon"}),
-	new Song({title: "Baby got back"})
+	new Song({ title: "I love you baby", genre: "Jazz"}),
+	new Song({ title: "blue moon", genre: "Jazz"}),
+    new Song({title: "Baby got back", })
 
 	]);
+
+
+
